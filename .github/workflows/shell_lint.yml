@@ -1,0 +1,19 @@
+name: Lint Shell Script
+
+on:
+  push:
+    branches: ["main"]
+    
+
+jobs:
+  
+  LintShellScripts:
+    runs-on: ubuntu-latest
+    
+    steps:
+      
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Run ShellCheck
+        uses: ludeeus/action-shellcheck@2.0.0

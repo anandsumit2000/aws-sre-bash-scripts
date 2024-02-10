@@ -4,9 +4,10 @@ check_instance_health() {
     local instance_ip=$1
     local key_file=$2
 
-aws_instance_ips=("your_instance_ip")
-key_file="~/keys/keyfile.pem"
+        ssh -i "$key_file" ec2-user@"$instance_ip" 'echo "Host Reachable." || echo "Host Unreachable"'
+}
 
-for instance_ip in "${aws_instance_ips[@]}"; do
-    check_instance_health "$instance_ip" "$key_file"
-done
+aws_instance_ip=("<host private IP>")
+key_file="<path to key_file.pem>"
+
+check_instance_health "$aws_instance_ip" "$key_file"

@@ -7,7 +7,7 @@ check_instance_health() {
         ssh -i "$key_file" ec2-user@"$instance_ip" 'echo "Host Reachable." || echo "Host Unreachable"'
 }
 
-aws_instance_ip=("<host private IP>")
+aws_instance_ip="<host private IP>"
 key_file="<path to key_file.pem>"
 
 check_instance_health "$aws_instance_ip" "$key_file"
